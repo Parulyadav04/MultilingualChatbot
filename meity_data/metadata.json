@@ -1,0 +1,10 @@
+{
+  "total_pages": 69,
+  "total_pdfs": 18,
+  "crawl_date": "2025-08-21 14:22:59",
+  "base_url": "https://www.meity.gov.in",
+  "method": "Selenium WebDriver",
+  "languages": {
+    "en": 87
+  }
+}

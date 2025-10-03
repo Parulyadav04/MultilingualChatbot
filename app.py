@@ -175,7 +175,7 @@ def update_language_stats(language):
 # Main UI
 st.markdown("""
 <div class="main-header">
-    <h1>🤖 Multilingual AI Chatbot</h1>
+    <h1> Multilingual AI Chatbot</h1>
     <p>Speak or type in your preferred Indian language - I understand them all!</p>
 </div>
 """, unsafe_allow_html=True)
@@ -190,14 +190,14 @@ with st.sidebar:
     
     st.markdown("</div>", unsafe_allow_html=True)
     
-    # Language Statistics
-    if st.session_state.language_stats:
-        st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
-        st.header("📊 Usage Statistics")
-        for lang_code, count in st.session_state.language_stats.items():
-            lang_name = LANGUAGE_MAPPING.get(lang_code, lang_code)
-            st.write(f"**{lang_name}:** {count} messages")
-        st.markdown("</div>", unsafe_allow_html=True)
+    # # Language Statistics
+    # if st.session_state.language_stats:
+    #     st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
+    #     st.header("Usage Statistics")
+    #     for lang_code, count in st.session_state.language_stats.items():
+    #         lang_name = LANGUAGE_MAPPING.get(lang_code, lang_code)
+    #         st.write(f"**{lang_name}:** {count} messages")
+    #     st.markdown("</div>", unsafe_allow_html=True)
     
     # Settings
     st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
@@ -330,8 +330,7 @@ if st.session_state.chat_history:
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #666; padding: 1rem;">
-    <p>🌟 Multilingual AI Chatbot | Built with Streamlit | Supports 13+ Indian Languages</p>
-    <p>💡 Tip: Try speaking or typing in Hindi, Bengali, Tamil, Telugu, or any other supported language!</p>
+    <p>🌟 Multilingual AI Chatbot | Built with Streamlit | Supports Indian Languages</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -340,3 +339,94 @@ if user_input.strip():
     detected = detect_language(user_input)
     lang_name = LANGUAGE_MAPPING.get(detected, detected)
     st.sidebar.success(f"🌍 Detected Language: {lang_name}")
+
+
+
+# import streamlit as st
+# from chatbot import MeityChatbot
+# import time
+
+# # Initialize chatbot
+# @st.cache_resource
+# def load_chatbot():
+#     return MeityChatbot()
+
+# def main():
+#     st.set_page_config(
+#         page_title="MeitY AI Assistant",
+#         page_icon="🏛️",
+#         layout="wide"
+#     )
+    
+#     st.title("🏛️ MeitY AI Assistant")
+#     st.markdown("Ask questions about Ministry of Electronics and Information Technology policies, schemes, and notifications.")
+    
+#     # Load chatbot
+#     try:
+#         chatbot = load_chatbot()
+#     except Exception as e:
+#         st.error(f"Failed to load chatbot: {e}")
+#         st.info("Please make sure you've run `python process_data.py` first to process your data.")
+#         return
+    
+#     # Chat interface
+#     if "messages" not in st.session_state:
+#         st.session_state.messages = []
+    
+#     # Display chat history
+#     for message in st.session_state.messages:
+#         with st.chat_message(message["role"]):
+#             st.markdown(message["content"])
+    
+#     # Chat input
+#     if prompt := st.chat_input("Ask about MeitY policies, schemes, or notifications..."):
+#         # Add user message
+#         st.session_state.messages.append({"role": "user", "content": prompt})
+#         with st.chat_message("user"):
+#             st.markdown(prompt)
+        
+#         # Generate response
+#         with st.chat_message("assistant"):
+#             with st.spinner("Searching documents and generating response..."):
+#                 result = chatbot.chat(prompt)
+                
+#                 # Only show the answer, not sources
+#                 st.markdown(result['response'])
+                
+#                 # Add assistant message
+#                 st.session_state.messages.append({
+#                     "role": "assistant", 
+#                     "content": result['response']
+#                 })
+    
+#     # Sidebar with information
+#     with st.sidebar:
+#         st.header("About")
+#         st.markdown("""
+#         This AI assistant helps you find information from MeitY documents including:
+#         - Government policies
+#         - Scheme notifications  
+#         - Ministry updates
+#         - Technical guidelines
+#         """)
+        
+#         if st.button("Clear Chat History"):
+#             st.session_state.messages = []
+#             st.rerun()
+        
+#         st.header("Example Questions")
+#         example_questions = [
+#             "What is C-DAC?",
+#             "Contact number of MeitY",
+#             "What is Digital India initiative?",
+#             "Tell me about electronics manufacturing schemes",
+#             "What are the latest IT policies?"
+#         ]
+        
+#         for question in example_questions:
+#             if st.button(question, key=f"example_{question[:20]}"):
+#                 st.session_state.messages.append({"role": "user", "content": question})
+#                 st.rerun()
+
+# if __name__ == "__main__":
+#     main()

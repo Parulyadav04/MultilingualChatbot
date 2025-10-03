@@ -1,0 +1,28 @@
+{
+  "total_pages": 84,
+  "total_pdfs": 0,
+  "total_entries": 84,
+  "successful_extractions": 84,
+  "minimal_content_pages": 0,
+  "total_content_chars": 124590,
+  "average_content_length": 1483,
+  "crawl_date": "2025-09-22 21:50:27",
+  "base_url": "https://www.meity.gov.in",
+  "method": "Enhanced Selenium WebDriver - Complete Data Extraction",
+  "languages": {
+    "en": 71,
+    "pl": 6,
+    "unknown": 2,
+    "de": 1,
+    "nl": 2,
+    "af": 1,
+    "fr": 1
+  },
+  "type_distribution": {
+    "HTML": 84,
+    "PDF": 0
+  },
+  "total_urls_visited": 204,
+  "total_urls_found": 388,
+  "extraction_approach": "Complete data preservation with minimal summarization"
+}
